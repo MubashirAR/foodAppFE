@@ -1,3 +1,6 @@
-<p>
-  register works!
-</p>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    Welcome
+  <input type="text" formControlName="username">
+  <input type="password" formControlName="password">
+  <input type="submit" [value]="submit" formControlName="password">
+</form>
