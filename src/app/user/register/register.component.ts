@@ -8,22 +8,23 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  profileForm = new FormGroup({
+  profileGroup = new FormGroup({
     username : new FormControl(''),
-    password : new FormControl('')
+    password : new FormControl(''),
   });
-  submit = 'Submit';
+  submitValue = 'Submit!';
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    // this.getKitties();
+    this.getUsers();
   }
-  getKitties = () => {
-    this.http.get('http://localhost:3000/getKitties')
+  getUsers = () => {
+    this.http.get('http://localhost:3000/users')
         .subscribe(data => console.log(data));
   }
   onSubmit = () => {
-    console.log(this.profileForm.value);
+    this.http.post('http://localhost:3000/registerUser', this.profileGroup.value)
+            .subscribe(data => console.log(data));
   }
 
 }
