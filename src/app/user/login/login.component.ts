@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
     username: new FormControl(''),
     password: new FormControl(''),
   });
-  onSubmit = () => {this.http.get('http://localhost:3000/user', { params: this.profileGroup.value }).subscribe<Response>(
-    response => {
+  onSubmit = () => {this.http.get('http://localhost:3000/user', { params: this.profileGroup.value }).subscribe(
+    (response: any) => {
       if (response.status === 'success') {
         localStorage.setItem('userID', response.data._id);
         this.router.navigate(['/']);
@@ -29,8 +29,4 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-}
-class Response {
-  status: string;
-  data: Object;
 }
