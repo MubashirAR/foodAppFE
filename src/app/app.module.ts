@@ -7,11 +7,15 @@ import { RegisterComponent } from './user/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './user/login/login.component';
+import { RestaurantDetailsComponent } from './restaurant-details/restaurant-details.component';
+import { HomepageComponent } from './homepage/homepage.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    RestaurantDetailsComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

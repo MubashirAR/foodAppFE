@@ -1,0 +1,28 @@
+$header1-background: blue;
+h1{
+  color: white;
+}
+.header{
+
+  background-color:$header1-background;
+  height: 10%;
+}
+
+div#map {
+  display: flex;
+}
+/* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+#map {
+  height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+div.map-container {
+  width: 100%;
+  height: 40%;
+}

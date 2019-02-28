@@ -1,19 +1,2 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    {{ title }}
-  </h1>
-</div>
-<nav>
-  <a routerLink="/register">Register</a>
-  <a routerLink="/">Home</a>
-  <a routerLink="/login">Login</a>
-</nav>
-<div class="map-container">
-  <div id="map"></div>
-</div>
-<div *ngFor="let restaurant of restaurants">
-  {{restaurant}}
-</div>
 
 <router-outlet></router-outlet>
