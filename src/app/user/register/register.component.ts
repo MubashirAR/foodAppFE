@@ -10,6 +10,10 @@ export class RegisterComponent implements OnInit {
 
   profileGroup = new FormGroup({
     username : new FormControl(''),
+    first_name : new FormControl(''),
+    last_name : new FormControl(''),
+    email : new FormControl(''),
+    mobile : new FormControl(''),
     password : new FormControl(''),
   });
   submitValue = 'Submit!';

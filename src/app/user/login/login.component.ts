@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import config from '../../../config.js';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,13 +17,14 @@ export class LoginComponent implements OnInit {
     username: new FormControl(''),
     password: new FormControl(''),
   });
-  onSubmit = () => {this.http.get('http://localhost:3000/user', { params: this.profileGroup.value }).subscribe(
+  onSubmit = () => {this.http.post(config.baseURL + '/login', this.profileGroup.value ).subscribe(
     (response: any) => {
       if (response.status === 'success') {
+        console.log(response)
         localStorage.setItem('userID', response.data._id);
         this.router.navigate(['/']);
       } else {
-        console.log('failure');
+        console.log(response);
       }
     }); }
 

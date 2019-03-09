@@ -1,8 +1,12 @@
 <p>
   register works!
 </p>
-<form action="" [formGroup]="profileGroup" (submit) = "onSubmit()">
+<form action="" [formGroup]="profileGroup" (submit) = "onSubmit()" class="col-sm-2">
   <input type="text" formControlName="username">
+  <input type="text" formControlName="email">
+  <input type="number" formControlName="mobile">
+  <input type="text" formControlName="first_name">
+  <input type="text" formControlName="last_name">
   <input type="password" formControlName="password">
   <input type="submit" (value)="submitValue">
 </form>
