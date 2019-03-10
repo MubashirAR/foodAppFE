@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-declare var google;
+// declare var google;
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +15,6 @@ export class DataSharingService {
   // currentMap = this.mapSource.asObservable();
   // updateMap = (message: any) => this.mapSource.next(this.map);
   constructor() {
-    console.log(document.getElementById('map'));
+    // console.log(document.getElementById('map'));
   }
 }

@@ -1,5 +1,5 @@
 <!-- Custom fonts for this template -->
-<link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
 
 <div id="page-top">
@@ -32,7 +32,7 @@
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="{{item.name}}"  *ngFor='let item of menu'>
       <div class="w-100">
         <h1 class="mb-0">{{item.name}}
-          <!-- <span class="text-primary">Name</span> -->
+          <span class="text-primary">Name</span>
         </h1>
         <div class="subheading mb-5">3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
           <a href="mailto:name@email.com">name@email.com</a>
@@ -44,9 +44,99 @@
 
   </div>
 
-  <!-- Plugin JavaScript -->
+  Plugin JavaScript
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for this template -->
+  Custom scripts for this template
   <script src="js/resume.min.js"></script>
+</div> -->
+
+
+<div id="top">
+  <div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                    <div class="file btn btn-lg btn-primary">
+                        View Photos
+                        <input type="file" name="file"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="profile-head">
+                            <h5>
+                                Persia Darbar
+                            </h5>
+                            <h6>
+                                Jogeshwari West
+                            </h6>
+                            <p class="proile-rating">RATINGS : <span>4.3/5</span></p>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Category 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Cart</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <!-- <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/> -->
+                <!-- <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Order Now!"/> -->
+                <input type="submit" class="btnRegister"  value="Register"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+                    <p>MENU</p>
+                    <a *ngFor="let item of [1,2,3,4,5]">Category {{item}}<br/></a>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row" *ngFor="let item of [1,2,3]">
+                                    <div class="col-md-6">
+                                        <label>Chicken Biryani {{item}}KG</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p>{{300 * item}}</p>
+                                    </div>
+                                    <div class="col-md-2">
+                                      <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Add"/>
+                                    </div>
+                                </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="row" *ngFor="let item of [1]">
+                                        <div class="col-md-6">
+                                            <label>Chicken Biryani {{item}}KG</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p>{{300 * item}}</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Remove (1)"/>
+                                        </div>
+                                    </div>
+
+                        <!-- <div class="row">
+                            <div class="col-md-12">
+                                <label>Your Bio</label><br/>
+                                <p>Your detail description</p>
+                            </div>
+                        </div> -->
+
+                      </div>
+                </div>
+            </div>
+        </div>
+    </form>
+  </div>
 </div>

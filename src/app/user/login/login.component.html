@@ -1,4 +1,4 @@
-<div class="TestClasss">
+<!-- <div class="TestClasss">
   <div class="loginbox">
     <img src="./assets/img/avatar.png" class="avatar">
         <h1>Login Here</h1>
@@ -8,9 +8,49 @@
             <p>Password</p>
             <input type="password" name="" placeholder="Enter Password" formControlName="password">
             <input type="submit" name="" (value)="submitValue">
-            <!-- <a href="#">Lost your password?</a><br>
-            <a href="#">Don't have an account?</a> -->
+            <a href="#">Lost your password?</a><br>
+            <a href="#">Don't have an account?</a>
         </form>
 
     </div>
-</div>
+</div> -->
+
+<div  class="login-container row">
+    <div class="col-sm-12 col-lg-6 row">
+        <div class="col-md-6 login-form-1">
+            <h3>Foodies</h3>
+            <form  [formGroup]="profileGroup" (submit) = "onSubmit()">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your Username" formControlName="username" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Your Password" formControlName="password" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="Login" />
+                </div>
+                <div class="form-group">
+                    <a href="#" class="ForgetPwd">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 login-form-2">
+            <h3>Restaurants</h3>
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="Login" />
+                </div>
+                <div class="form-group">
+
+                    <a href="#" class="ForgetPwd" value="Login">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>

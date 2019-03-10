@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-declare var google;
+declare var google: any;
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',

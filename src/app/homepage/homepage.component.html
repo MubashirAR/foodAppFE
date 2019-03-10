@@ -1,17 +1,56 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="header" style="text-align:center">
+<!-- <div class="header" style="text-align:center">
   <h1>
     {{ title }}
   </h1>
-</div>
-<nav>
-  <a routerLink="/register">Register</a>
-  <a routerLink="/">Home</a>
-  <a routerLink="/login">Login</a>
-</nav>
-<div class="map-container">
-  <div id="map"></div>
-</div>
-<div routerLink="/restaurant/{{restaurant.id}}" *ngFor="let restaurant of restaurants">
-    {{restaurant.name}}
+</div> -->
+<div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" routerLink="/">Restaurant Guru</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <!-- <nav>
+    <a routerLink="/register">Register</a>
+    <a routerLink="/">Home</a>
+    <a routerLink="/login">Login</a>
+  </nav> -->
+  <div class="map-container">
+    <div id="map"></div>
+  </div>
+  <!-- <div routerLink="/restaurant/{{restaurant.id}}" *ngFor="let restaurant of restaurants">
+      {{restaurant.name}}
+  </div> -->
+  <div class="row">
+    <div class="card col-xs-12 col-sm-3 nopadding"  routerLink="/restaurant/{{restaurant.id}}" *ngFor="let restaurant of restaurants">
+      <div class="card-body">
+        <img src="{{restaurant.icon}}" alt="">
+        <h5 class="card-title">{{restaurant.name}}</h5>
+        <!-- <h6 class="card-subtitle mb-2 text-muted">{{restaurant.vicinity}}</h6> -->
+        <p class="card-text">{{restaurant.vicinity}}</p>
+        <a class="card-link">Menu</a>
+        <a class="card-link">More Details</a>
+      </div>
+    </div>
+  </div>
 </div>

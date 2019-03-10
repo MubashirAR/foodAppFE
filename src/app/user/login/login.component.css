@@ -1,88 +1,54 @@
-
-.TestClasss{
+.login-container{
   height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  background: url(../../../static/pic1.jpg);
-  background-size: cover;
-  background-position: center;
-  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.loginbox{
-  width: 320px;
-  height: 420px;
-  background: #000;
-  color: #fff;
-  top: 50%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%,-50%);
-  box-sizing: border-box;
-  padding: 70px 30px;
+.login-form-1{
+  padding: 5%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
-
-.avatar{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  position: absolute;
-  top: -50px;
-  left: calc(50% - 50px);
-}
-
-h1{
-  margin: 0;
-  padding: 0 0 20px;
+.login-form-1 h3{
   text-align: center;
-  font-size: 22px;
+  color: #333;
 }
-
-.loginbox p{
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
+.login-form-2{
+  padding: 5%;
+  background: #0062cc;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
-
-.loginbox input{
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.loginbox input[type="text"], input[type="password"]
-{
-  border: none;
-  border-bottom: 1px solid #fff;
-  background: transparent;
-  outline: none;
-  height: 40px;
+.login-form-2 h3{
+  text-align: center;
   color: #fff;
-  font-size: 16px;
 }
-.loginbox input[type="submit"]
+.login-container form{
+  padding: 10%;
+}
+.btnSubmit
 {
+  width: 50%;
+  border-radius: 1rem;
+  padding: 1.5%;
   border: none;
-  outline: none;
-  height: 40px;
-  background: #fb2525;
-  color: #fff;
-  font-size: 18px;
-  border-radius: 20px;
-}
-.loginbox input[type="submit"]:hover
-{
   cursor: pointer;
-  background: #ffc107;
-  color: #000;
 }
-.loginbox a{
+.login-form-1 .btnSubmit{
+  font-weight: 600;
+  color: #fff;
+  background-color: #0062cc;
+}
+.login-form-2 .btnSubmit{
+  font-weight: 600;
+  color: #0062cc;
+  background-color: #fff;
+}
+.login-form-2 .ForgetPwd{
+  color: #fff;
+  font-weight: 600;
   text-decoration: none;
-  font-size: 12px;
-  line-height: 20px;
-  color: darkgrey;
 }
-
-.loginbox a:hover
-{
-  color: #ffc107;
+.login-form-1 .ForgetPwd{
+  color: #0062cc;
+  font-weight: 600;
+  text-decoration: none;
 }

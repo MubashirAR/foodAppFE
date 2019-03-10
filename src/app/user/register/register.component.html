@@ -1,4 +1,4 @@
-<p>
+<!-- <p>
   register works!
 </p>
 <form action="" [formGroup]="profileGroup" (submit) = "onSubmit()" class="col-sm-2">
@@ -9,4 +9,105 @@
   <input type="text" formControlName="last_name">
   <input type="password" formControlName="password">
   <input type="submit" (value)="submitValue">
+</form> -->
+
+
+<form class="register" [formGroup]="profileGroup" (submit) = "onSubmit()">
+  <div class="container row">
+      <div class="col-md-3 register-left">
+          <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+          <h3>Welcome</h3>
+          <p>Pull up a chair. Take a taste. Come join us. Life is so endlessly delicious.</p>
+          <input type="submit" name="" value="Login" [routerLink]="['/login']" /><br/>
+      </div>
+      <div class="col-md-9 register-right">
+          <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+              <li class="nav-item">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Foodie</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Restaurant</a>
+              </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <h3 class="register-heading">Apply as a Foodie</h3>
+                  <div class="row register-form">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <input type="text" class="form-control" placeholder="First Name *" formControlName="first_name" />
+                          </div>
+                          <div class="form-group">
+                              <input type="text" class="form-control" placeholder="User Name *" formControlName="username" />
+                          </div>
+                          <div class="form-group">
+                              <div class="maxl">
+                                  <label class="radio inline col-sm-4">
+                                      <input type="radio" name="gender" value="male" checked>
+                                      <span> Male </span>
+                                  </label>
+                                  <label class="radio inline col-sm-4">
+                                      <input type="radio" name="gender" value="female">
+                                      <span> Female </span>
+                                  </label>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <input type="password" class="form-control" placeholder="Password *" formControlName="password" />
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <input type="text" class="form-control" placeholder="Last Name *" formControlName="last_name" />
+                          </div>
+                          <div class="form-group">
+                              <input type="email" class="form-control" placeholder="Your Email *" formControlName="email" />
+                          </div>
+                          <div class="form-group">
+                              <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" formControlName="mobile" />
+                          </div>
+                          <div class="form-group">
+                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                          </div>
+                          <input type="submit" class="btnRegister"  value="Register"/>
+                      </div>
+                  </div>
+              </div>
+              <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <h3  class="register-heading">Apply as a Restaurant</h3>
+                  <div class="row register-form">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <input type="text" class="form-control" placeholder="First Name *" value="" />
+                          </div>
+                          <div class="form-group">
+                              <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                          </div>
+                          <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Address *" value="" />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email *" value="" />
+                          </div>
+                          <div class="form-group">
+                              <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                          </div>
+                          <div class="form-group">
+                              <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                          </div>
+                          <div class="form-group">
+                            <input type="submit" class="btnRegister"  (value)="submitValue"/>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
 </form>
