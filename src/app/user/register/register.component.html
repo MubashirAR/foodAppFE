@@ -12,7 +12,7 @@
 </form> -->
 
 
-<form class="register" [formGroup]="profileGroup" (submit) = "onSubmit()">
+<div class="register">
   <div class="container row">
       <div class="col-md-3 register-left">
           <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
@@ -30,7 +30,7 @@
               </li>
           </ul>
           <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <form class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"  [formGroup]="profileGroup" (submit) = "onSubmit()">
                   <h3 class="register-heading">Apply as a Foodie</h3>
                   <div class="row register-form">
                       <div class="col-md-6">
@@ -70,44 +70,65 @@
                             <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
                           </div>
                           <input type="submit" class="btnRegister"  value="Register"/>
-                      </div>
+                        </div>
+                        <span id="failedMessage">
+                            {{failedMessage}}
+                        </span>
                   </div>
-              </div>
-              <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              </form>
+              <form class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab" [formGroup]="profileGroupRestaurant" (submit) = "onSubmitRestaurant()">
                   <h3  class="register-heading">Apply as a Restaurant</h3>
                   <div class="row register-form">
                       <div class="col-md-6">
                           <div class="form-group">
-                              <input type="text" class="form-control" placeholder="First Name *" value="" />
+                              <input type="text" class="form-control" placeholder="First Name *" value="" formControlName="name"/>
                           </div>
                           <div class="form-group">
-                              <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                              <input type="text" class="form-control" placeholder="Last Name *" value="" formControlName="last_name"/>
                           </div>
                           <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                            <input type="password" class="form-control" placeholder="Password *" value="" formControlName="password"/>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Address *" value="" />
-                        </div>
+                        <form class="form-group" [formGroup]="address">
+                            <input type="text" class="form-control" placeholder="Your Address *" value="" formControlName="address_line_1"/>
+                        </form>
+                        <form class="form-group" [formGroup]="address">
+                            <input type="text" class="form-control" placeholder="Your Address *" value="" formControlName="address_city"/>
+                        </form>
+                        <form class="form-group" [formGroup]="address">
+                            <input type="text" class="form-control" placeholder="Your Address *" value="" formControlName="address_zip"/>
+                        </form>
                       </div>
                       <div class="col-md-6">
                           <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email *" value="" />
+                            <input type="email" class="form-control" placeholder="Email *" value="" formControlName="email"/>
                           </div>
                           <div class="form-group">
-                              <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                              <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" formControlName="phone"/>
                           </div>
                           <div class="form-group">
                               <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
                           </div>
+                          <form class="form-group" [formGroup]="address">
+                              <input type="password" class="form-control" placeholder="Address Line 2" value="" formControlName="address_line_2"/>
+                          </form>
+                          <form class="form-group" [formGroup]="address">
+                              <input type="password" class="form-control" placeholder="State" value="" formControlName="address_state"/>
+                          </form>
+                          <form class="form-group" [formGroup]="address">
+                              <input type="password" class="form-control" placeholder="Country" min="2" max="2" value="" formControlName="address_country_id"/>
+                          </form>
                           <div class="form-group">
                             <input type="submit" class="btnRegister"  (value)="submitValue"/>
                           </div>
                       </div>
+                      <span id="failedMessage">
+                          {{failedMessage}}
+                      </span>
                   </div>
-              </div>
+                </form>
           </div>
       </div>
   </div>
 
-</form>
+</div>
