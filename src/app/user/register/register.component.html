@@ -33,9 +33,16 @@
               <form class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"  [formGroup]="profileGroup" (submit) = "onSubmit()">
                   <h3 class="register-heading">Apply as a Foodie</h3>
                   <div class="row register-form">
+                      <span class="alert alert-danger col-sm-12" *ngFor="let name of getKeys(profileGroup.controls)" [hidden]="!(profileGroup.controls[name].invalid && (profileGroup.controls[name].dirty || profileGroup.controls[name].touched))">
+                          {{name}} is required!
+                      </span>
+                      <span class="alert alert-danger col-sm-12" [hidden]="!profileGroup.errors.mismatch">
+                          password mismatch
+                      </span>
+
                       <div class="col-md-6">
                           <div class="form-group">
-                              <input type="text" class="form-control" placeholder="First Name *" formControlName="first_name" />
+                              <input type="text" class="form-control" placeholder="First Name *" formControlName="first_name" >
                           </div>
                           <div class="form-group">
                               <input type="text" class="form-control" placeholder="User Name *" formControlName="username" />
@@ -53,32 +60,39 @@
                               </div>
                           </div>
                           <div class="form-group">
-                              <input type="password" class="form-control" placeholder="Password *" formControlName="password" />
+                              <input type="password" class="form-control" placeholder="Password *" formControlName="password" >
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="form-group">
-                              <input type="text" class="form-control" placeholder="Last Name *" formControlName="last_name" />
+                              <input type="text" class="form-control" placeholder="Last Name *" formControlName="last_name" >
                           </div>
                           <div class="form-group">
-                              <input type="email" class="form-control" placeholder="Your Email *" formControlName="email" />
+                              <input type="email" class="form-control" placeholder="Your Email *" formControlName="email" >
                           </div>
                           <div class="form-group">
-                              <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" formControlName="mobile" />
+                              <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" formControlName="mobile" >
                           </div>
                           <div class="form-group">
-                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" formControlName="confirmPassword" >
                           </div>
                           <input type="submit" class="btnRegister"  value="Register"/>
                         </div>
-                        <span id="failedMessage">
-                            {{failedMessage}}
-                        </span>
+                        <!-- <span id="failedMessage" *ngFor="let name of getKeys(profileGroup.controls)" [hidden]="!profileGroup.controls[name].errors && !profileGroup.controls[name].errors.required ">
+                            {{name}} is required {{profileGroup.controls[name].errors.required}}
+                        </span> -->
+
                   </div>
               </form>
               <form class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab" [formGroup]="profileGroupRestaurant" (submit) = "onSubmitRestaurant()">
                   <h3  class="register-heading">Apply as a Restaurant</h3>
                   <div class="row register-form">
+                      <span class="alert alert-danger col-sm-12" *ngFor="let name of getKeys(profileGroupRestaurant.controls)" [hidden]="!(profileGroupRestaurant.controls[name].invalid && (profileGroupRestaurant.controls[name].dirty || profileGroupRestaurant.controls[name].touched))">
+                          {{name}} is required!
+                      </span>
+                      <span class="alert alert-danger col-sm-12" [hidden]="!profileGroupRestaurant.errors.mismatch">
+                          password mismatch
+                      </span>
                       <div class="col-md-6">
                           <div class="form-group">
                               <input type="text" class="form-control" placeholder="First Name *" value="" formControlName="name"/>
@@ -107,7 +121,7 @@
                               <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" formControlName="phone"/>
                           </div>
                           <div class="form-group">
-                              <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                              <input type="password" class="form-control" placeholder="Confirm Password *" value="" formControlName="confirmPassword"/>
                           </div>
                           <form class="form-group" [formGroup]="address">
                               <input type="password" class="form-control" placeholder="Address Line 2" value="" formControlName="address_line_2"/>

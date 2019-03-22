@@ -1,5 +1,6 @@
 #failedMessage{
-  color: darkred
+  color: darkred;
+  width: 100%;
 }
 .register{
   background: -webkit-linear-gradient(left, #3931af, #00c6ff);

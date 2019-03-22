@@ -17,16 +17,28 @@ export class LoginComponent implements OnInit {
     username: new FormControl(''),
     password: new FormControl(''),
   });
-  onSubmit = () => {this.http.post(config.baseURL + '/login', this.profileGroup.value ).subscribe(
-    (response: any) => {
+  onSubmit = () => {
+    this.http.post(config.baseURL + '/user/login', this.profileGroup.value ).subscribe((response: any) => {
       if (response.status === 'success') {
-        console.log(response)
-        localStorage.setItem('userID', response.data._id);
+        console.log(response);
+        localStorage.setItem('token', response.token);
         this.router.navigate(['/']);
       } else {
         console.log(response);
       }
-    }); }
+    });
+  }
+  onSubmitRestaurant = () => {
+    this.http.post(config.baseURL + '/login', this.profileGroup.value ).subscribe((response: any) => {
+      if (response.status === 'success') {
+        console.log(response);
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['/']);
+      } else {
+        console.log(response);
+      }
+    });
+  }
 
   ngOnInit() {
   }
