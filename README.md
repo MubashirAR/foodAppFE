@@ -1,1 +1,4 @@
-Check test-branch for updated code. The master branch is maintained alongside recordings for my youtube videos.
+An app built using Angular 7 and nodejs. This is a food delivery app under development. Currently the functioning modules are :
+
+### Login/register :
+- JWT token, salt-hash
