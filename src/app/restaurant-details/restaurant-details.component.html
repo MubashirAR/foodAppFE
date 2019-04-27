@@ -54,7 +54,7 @@
 
 <div id="top">
   <div class="container emp-profile">
-    <form method="post">
+    <form method="post" *ngIf="restaurant">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
@@ -68,10 +68,10 @@
             <div class="col-md-5">
                 <div class="profile-head">
                             <h5>
-                                Persia Darbar
+                                {{restaurant.name}}
                             </h5>
                             <h6>
-                                Jogeshwari West
+                                {{restaurant.address}}
                             </h6>
                             <p class="proile-rating">RATINGS : <span>4.3/5</span></p>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -94,35 +94,38 @@
             <div class="col-md-4">
                 <div class="profile-work">
                     <p>MENU</p>
-                    <a *ngFor="let item of [1,2,3,4,5]">Category {{item}}<br/></a>
+                    <a *ngFor="let item of restaurant.menu">Category {{item.category}}<br/></a>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="row" *ngFor="let item of [1,2,3]">
+                                <div class="row"  *ngFor="let item of restaurant.menu">
                                     <div class="col-md-6">
-                                        <label>Chicken Biryani {{item}}KG</label>
+                                        <label> {{item.name}}</label>
                                     </div>
                                     <div class="col-md-4">
-                                        <p>{{300 * item}}</p>
+                                        <p>{{item.price}}</p>
                                     </div>
                                     <div class="col-md-2">
-                                      <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Add"/>
+                                      <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Add" (click)="addToCart(item)"/>
                                     </div>
                                 </div>
 
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                    <div class="row" *ngFor="let item of [1]">
+                                    <div class="row" *ngFor="let item of cart.items">
                                         <div class="col-md-6">
-                                            <label>Chicken Biryani {{item}}KG</label>
+                                            <label>{{item.name}}</label>
                                         </div>
                                         <div class="col-md-2">
-                                            <p>{{300 * item}}</p>
+                                            <p>{{item.price}}</p>
                                         </div>
+                                        <!-- <div class="col-md-2">
+                                            <p>{{item.quantity}}</p>
+                                        </div> -->
                                         <div class="col-md-4">
-                                          <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Remove (1)"/>
+                                          <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Remove ({{ item.quantity }})" (click)="removeFromCart(item)"/>
                                         </div>
                                     </div>
 

@@ -2,7 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 // import { DataSharingService } from '../data-sharing.service';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 declare var google;
+import config from '../../config.js';
+import { UserService } from '../user.service';
+import { RestaurantService } from '../restaurant.service';
 @Component({
   selector: 'restaurant/[id=idname]',
   templateUrl: './restaurant-details.component.html',
@@ -10,55 +14,43 @@ declare var google;
 })
 
 export class RestaurantDetailsComponent {
-  // map: any;
-  route: ActivatedRoute;
-  menu: Array<{name: string, items: Array<{name: string}>}>;
   item: {name: string};
+  restaurant: any;
+  cart: any;
 
   constructor(
-    route: ActivatedRoute,
+    private route: ActivatedRoute,
+    private httpClient: HttpClient,
+    private userService: UserService,
+    private restaurantService: RestaurantService
     ) {
-      this.route = route; }
+      this.route = route;
+      this.httpClient = httpClient;
+      this.cart = {
+        restaurant_id: this.route.snapshot.paramMap.get('id'),
+        items: []
+      };
+    }
 
   ngAfterViewInit() {
-    console.log("after init")
-    var latlng = new google.maps.LatLng(39.305, -76.617);
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: latlng,
-      zoom: 12
-    });
-    var  mapSource = new BehaviorSubject<any>(map);
-    var currentMap = mapSource.asObservable();
-    var updateMap = (message: any) => mapSource.next(map);
-
-    this.menu = [
-      {
-        name: 'chinese',
-        items: [
-          {name: 'chowmen'},
-          {name: 'fried rice'}
-        ]
-    },
-    {
-      name: 'Mughlai',
-      items: [
-        {name: 'mughlai rice'},
-        {name: 'Biryani'}
-      ]
-    }
-    ];
-    currentMap.subscribe(map => map = map);
-      const id = this.route.snapshot.paramMap.get('id');
-      console.log(id);
-      const placesService = new google.maps.places.PlacesService(map);
-      console.log(placesService);
-      placesService.getDetails(
-        {placeId: id},
-        function(results, status, err) {
-            console.log(status);
-            console.log(err);
-        }
-      );
+    this.getMenu();
+    this.getCart();
+  }
+  getMenu = async () => {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.restaurant = await this.restaurantService.getMenu(id);
+  }
+  addToCart = (foodItem) => {
+    const { _id } = JSON.parse(localStorage.getItem('user'));
+    this.userService.addToCart(foodItem, this.cart, _id);
+  }
+  removeFromCart = (foodItem) => {
+    const { _id } = JSON.parse(localStorage.getItem('user'));
+    this.userService.removeFromCart(foodItem, this.cart, _id);
+  }
+  getCart = async() => {
+    const { _id } = JSON.parse(localStorage.getItem('user'));
+    this.cart = await this.userService.getCart(_id);
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import config from '../../config.js';
 
 declare var google: any;
 @Component({
@@ -7,8 +9,10 @@ declare var google: any;
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-
-
+  httpclient: HttpClient;
+  constructor(httpclient: HttpClient) {
+    this.httpclient = httpclient;
+  }
   title = 'Welcome to the food(ie) app!';
   map: any;
   mapPosition = {lat: 19.0760, lng: 72.8777};
@@ -16,6 +20,7 @@ export class HomepageComponent implements OnInit {
   request: Object;
   service: any;
   restaurants = [];
+  restaurantsDB = [];
   storeCoordinates = data => {
     console.log(data);
     this.mapPosition.lat = data.coords.latitude;
@@ -70,6 +75,10 @@ export class HomepageComponent implements OnInit {
   //     marker.setAnimation(google.maps.Animation.BOUNCE);
   //   }
   // }
+
+  getRestaurants = () => {
+    this.httpclient.get(config.baseURL + '/restaurant/list').subscribe((response: any) => this.restaurantsDB = response.data);
+  }
   ngOnInit(): void {
     // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     // Add 'implements OnInit' to the class.
@@ -88,6 +97,7 @@ export class HomepageComponent implements OnInit {
       radius: '500',
       type: ['restaurant']
     };
+    this.getRestaurants();
   }
 
 }
